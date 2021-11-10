@@ -6,4 +6,11 @@ The nRF5340 DK is typically powered via USB, but can be powered by a wide range 
 The first operation is to run the example provided by Nordic, which is an Heart Rate Monitor demo applicatoin. This proves that the kit works as expected and that the communication between the computer and the kit functions. The ZIP file containing the two HEX files for the demo application can be downloaded from the Nordic website. 
 The next operation is to install nRF Connect for Desktop and nRF Connect Programmer. 
 The first program to install of these two is the former. nRF Connect for Desktop is a cross-platform tool framework for assisting development on nRF devices. It contains many apps to test, monitor, measure, optimize and program applications. The nRF Connect program shows a list of apps that can be installed, in which we can find the Programmer. The Programmer can then be launched. 
-nRF Connect Programmer is used to program the HEX files of the demo application. 
+nRF Connect Programmer is used to program the HEX files of the demo application. Launch it, then connect the device to the USB port and switch it on. 
+Select the device, add the HEX files and click Erase & Write in the Device pane to program the device.
+Press the reset button: the development kit will now restart and run the application. 
+Download the Nordic nRF Toolbox app on your smartphone, launch it and tap HRM.
+Select Zephyr Heartrate Sensor: a simulated heart rate and battery charge percentage will be displayed on your screen.
+The next step is to set up the development toolchain and build and program an application from the source code. It is necessary to install the required code.
+
+
