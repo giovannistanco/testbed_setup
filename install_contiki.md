@@ -10,7 +10,7 @@ $ cd contiki-ng/tools/vagrant
 $ vagrant up
 $ vagrant ssh
 ```
-We run the bootstarp.sh script to install the Contiki-NG toolchain. In case of a WIndows host, it is necessary to convert line endings of this script. From the Vagrant shell we run:
+We run the bootstarp.sh script to install the Contiki-NG toolchain. The bootstrap.sh script installs a lot of useful tools and compilers for different platforms. In case of a Windows host, it is necessary to convert line endings of this script. From the Vagrant shell we run:
 ```
 $ sudo apt update
 $ sudo apt install dos2unix
@@ -30,8 +30,10 @@ end
 ```
 We then run antoher script to install VirtualBox guest additions, X and the Xfce desktop environment. If there are any problems, repeat the dos2unix operations. 
 ```
-sudo ./contiki-ng/tools/vagrant/bootstrap-vbox-with-x.sh
+$ sudo ./contiki-ng/tools/vagrant/bootstrap-vbox-with-x.sh
 ```
-When we start the image, the VirtualBox GUI is now shown. We login using username 'vagrant' and password 'vagrant' and run `sudo start` to show the Desktop. 
+When we start the image, the VirtualBox GUI is now shown. We login using username 'vagrant' and password 'vagrant' and run `sudo start` to show the Desktop. \
+The next step is to follow the (Contiki-NG for nRF52 Development Kit guide)[https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk].
+
 
 
