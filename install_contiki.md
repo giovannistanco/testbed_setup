@@ -40,7 +40,8 @@ sudo dpkg -i name_of_the_package.deb
 sudo apt-get install -f
 ```
 In order to access the DK as a regular Linux user, we create a `99-jlink.rules` file in our udev rules folder (e.g., `/etc/udev/rules.d/`) and add the following line to it:
-```ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
+```
+ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
 ```
 
 
