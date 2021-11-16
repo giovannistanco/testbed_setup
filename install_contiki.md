@@ -43,6 +43,29 @@ In order to access the DK as a regular Linux user, we create a `99-jlink.rules` 
 ```
 ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
 ```
+We then run the 'Hello world' example as a native node, as a native Unix process. We run this example in native mode by typing:
+```
+$ cd examples/hello-world
+$ make TARGET=native
+$ ./hello-world.native
+```
+We see the Contiki-NG boot messages and then a periodic 'Hello, world' string. \
+We then run the example on a real device. Since we are on a virtual amchine, we have to make sure that the USB device is visible. In order to do that, we download and install the VirtualBox Extension Pack, we enable USB support for the VM and add the device of our test. We also modify the Vagrantfile, adding the following lines.
+```
+config.vm.provider "virtualbox" do |vb|
+  vb.customize ["modifyvm", :id, "--usb", "on"]
+end
+```
+When all the tools are installed, we compile and flash the `examples/hello-world` application. This also allows to verify that the toolchain setup is correct. To compile the example, go to `examples/hello-world` and execute 
+```
+make TARGET=nrf52dk
+```
+If the compilation is completed without errors, flash the board:
+```
+make TARGET=nrf52dk hello-world.flash
+```
+The LED1 starts blinking, indicating the device is waiting for a connection from BLE master. 
+
 
 
 
