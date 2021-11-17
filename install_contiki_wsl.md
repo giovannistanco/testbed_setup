@@ -37,3 +37,15 @@ tar xjf mspgcc*.tar.bz2 -C /tmp/
 sudo cp -f -r /tmp/msp430/* /usr/local/
 rm -rf /tmp/msp430 mspgcc*.tar.bz2
 ```
+We do not install the JN compiler since it seems it will not be of our interest.\
+we focus on installing the platform for the nRF52 Development Kit.
+The first step is to download the nRF5 IOT SDK, whose latest version is the 0.9.\
+From the version 1 onwards, it is integrated in the nRF5 SDK. We stick to the guide and download the 0.9 version of the IOT SDK. 
+```
+wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
+sudo mkdir -p /usr/nrf52-sdk
+sudo apt install unzip
+sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf52-sdk
+export NRF52_SDK_ROOT=/usr/nrf52-sdk
+rm nrf5_iot_sdk_3288530.zip
+```
