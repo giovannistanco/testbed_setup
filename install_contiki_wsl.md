@@ -49,3 +49,10 @@ sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf52-sdk
 export NRF52_SDK_ROOT=/usr/nrf52-sdk
 rm nrf5_iot_sdk_3288530.zip
 ```
+We already installed the ARM toolchain, and GNU make (build-essential package). We now install Segger JLink Software for Linux. 
+```
+wget https://www.segger.com/downloads/jlink/JLink_Linux_x86_64.deb
+sudo dpkg -i JLink_Linux_x86_64.deb
+sudo apt-get install -f
+
+```
