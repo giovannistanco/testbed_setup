@@ -10,4 +10,19 @@ The machine must then be restarted to complete the WSL install and update to WSL
 ```
 wsl --set-default-version 2
 ```
-We then install our favourite Linux distribution from the Microsoft store. We choose [Ubuntu(https://ubuntu.com/wsl), download it and set username and password. 
+We then install our favourite Linux distribution from the Microsoft store. We choose [Ubuntu](https://ubuntu.com/wsl), download it and set username and password. \
+The next step is to follow the guide for the [toolchain installation on Linux](https://github.com/contiki-ng/contiki-ng/wiki/Toolchain-installation-on-Linux). The first operation is installing some necessary packages.
+```
+$ sudo apt update
+$ sudo apt install build-essential doxygen git curl wireshark python3-serial srecord rlwrap
+```
+The Contiki guide suggests to install python-serial, but our WSL is not able to locate it, so we install python3-serial instead. While installing Wireshark, enable the feature that lets non-superuser capture packets (select "yes"). Then we add ourself to the Wireshark group:
+```
+$ sudo usermod -a -G wireshark <user>
+```
+We check the bitness of our Ubuntu WSL using the command `uname -m`: the output is x86_64. This will be helpful in the following installations.\
+We then install an ARM compiler, which is needed for ARM-based platforms. 
+```
+$ wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+$ tar -xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+```
