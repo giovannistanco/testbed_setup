@@ -50,3 +50,24 @@ export NRF52_SDK_ROOT=/usr/nrf52-sdk
 rm nrf5_iot_sdk_3288530.zip
 ```
 We already installed the ARM toolchain, and GNU make (build-essential package). We now install Segger JLink Software for Linux. 
+```
+We uploaded the deb package on a Github repository, downloaded it and tried to instal it, we had problems, so we gave up
+```
+The Segger software installation was problematic. However the Segger software seems to be correctly installed in the right directory `/opt/SEGGER/JLink`. 
+So we try to follow the guide for using Contiki-NG for Nordic nRF52840 SoC, [as done for Vagrant](https://github.com/giovannistanco/testbed_setup/blob/main/Platform_nrf52840_vagrant.md).
+We run the same commands and we also install `pip`.
+```
+wget https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-0/nrf-command-line-tools-10.15.0_amd.zip
+unzip nrf-command-line-tools-10.15.0_amd.zip
+sudo dpkg -i nrf-command-line-tools_10.15.0_amd64.deb
+sudo apt install python3-pip
+python3 -m pip install -U pip
+sudo python3 -m pip install nrfutil
+```
+We then clone the repository and initialize the submodules.
+```
+git clone https://github.com/contiki-ng/contiki-ng.git
+cd contiki-ng
+git submodule update --init --recursive
+```
+We then try to compile the Hello world application. We get this output `TARGET not defined, using target 'native'`, so the compilation is not what we expected.
