@@ -12,7 +12,7 @@ Another needed component is nrfutil for programming the nRF52840 Dongle. It is a
 python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
 ```
-One the tools are installed, it is recommended to start by compiling and flashing the `examples/hello-world` application. This also verifies if the toolchain setup is correct. To compile the example, go to `examples/hello-world` and execute:
+Once the tools are installed, it is recommended to start by compiling and flashing the `examples/hello-world` application. This also verifies if the toolchain setup is correct. To compile the example, go to `examples/hello-world` and execute:
 ```
 make TARGET=nrf52840
 ```
