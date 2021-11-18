@@ -1,4 +1,4 @@
-We follow the guide for using Contiki-NG for Nordic nRF52840 SoC.\
+We follow the guide for [using Contiki-NG for Nordic nRF52840 SoC](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52840#virtual-com-and-real-time-transfer).\
 In order to compile for the nRF52840 platforms we need several components. The first one is an ARM compatible toolchain. arm-gcc is the toolchain used to build Contiki-NG, an it is pre-installed on the Vagrant image. Another component is GNU make, that we already installed before.\
 Another component is nrfjprog for programmin the nRF52840 DK, which is supplied as part of the nRF Command Line Tools. The SEGGER software must be previously installed in its default location, `/opt/SEGGER/JLink`. We download the nRF Command Line Tools and run the installer. 
 ```
@@ -28,7 +28,7 @@ make: *** [hello-world.upload] Error 41
 ```
 We run the command with the log enabled.
 ```
-make TARGET=nrf52840 -- log hello-world.upload
+$ make TARGET=nrf52840 -- log hello-world.upload
   CC        ../../os/sys/log.c
   LD        build/nrf52840/dk/log.elf
 log.o: In function `log_6addr':
@@ -104,3 +104,17 @@ collect2: error: ld returned 1 exit status
 make: *** [build/nrf52840/dk/log.elf] Error 1
 rm log.o
 ```
+We tried to run the command again.
+```
+$ make TARGET=nrf52840 hello-world.upload
+nrfjprog -f nrf52  --sectorerase --program build/nrf52840/dk/hello-world.hex
+ERROR: Unable to connect to a debugger.
+ERROR: JLinkARM DLL reported an error. Try again. If error condition
+ERROR: persists, run the same command again with argument --log, contact Nordic
+ERROR: Semiconductor and provide the generated log.log file to them.
+NOTE: For additional output, try running again with logging enabled (--log).
+NOTE: Any generated log error messages will be displayed.
+../../arch/cpu/nrf52840/Makefile.nrf52840:127: recipe for target 'hello-world.upload' failed
+make: *** [hello-world.upload] Error 33
+```
+
