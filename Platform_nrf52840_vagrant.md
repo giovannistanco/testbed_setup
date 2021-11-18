@@ -3,6 +3,7 @@ In order to compile for the nRF52840 platforms we need several components. The f
 Another component is nrfjprog for programmin the nRF52840 DK, which is supplied as part of the nRF Command Line Tools. The SEGGER software must be previously installed in its default location, `/opt/SEGGER/JLink`. We download the nRF Command Line Tools and run the installer. 
 ```
 wget https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-0/nrf-command-line-tools-10.15.0_amd.zip
+unzip nrf-command-line-tools-10.15.0_amd.zip
 sudo dpkg -i nrf-command-line-tools_10.15.0_amd64.deb
 ```
 After installation they are installed in `/opt/`\
