@@ -35,8 +35,11 @@ sudo ./contiki-ng/tools/vagrant/bootstrap-vbox-with-x.sh
 ```
 When we start the image, the VirtualBox GUI is now shown. We login using username 'vagrant' and password 'vagrant' and run `sudo startx` to show the Desktop. \
 The next step is to follow the [Contiki-NG for nRF52 Development Kit guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk).
-In order to compile for the nRF52 DK, we need four components. The nRF5 IOT SDK and the ARM compatible toolchain are installed by the bootstrap.sh script. The other two components are GNU make, that can be installed by running `sudo apt-get install build-essential`, and Segger JLink Software for Linux. The deb file for the JLink software can be downloaded from the [Segger website](https://www.segger.com/downloads/jlink/). From this website we download a 64-bit Deb installer. This Deb package can be downloaded using `wget` or can downloaded on our WIndows host and then moved via a shared folder. This package can be installed using the following two commands.
+In order to compile for the nRF52 DK, we need four components. The nRF5 IOT SDK and the ARM compatible toolchain are installed by the bootstrap.sh script. The other two components are GNU make, that can be installed by running `sudo apt-get install build-essential`, and Segger JLink Software for Linux. The deb file for the JLink software can be downloaded from the [Segger website](https://www.segger.com/downloads/jlink/). From this website we download a 64-bit Deb installer. This Deb package can be downloaded using `wget` or can downloaded on our WIndows host and then moved via a shared folder. This package can be installed using the following two commands.\
+We then downloaded the deb package from Google Drive.
 ```
+sudo pip install gdown
+gdown --id 1jpilynTVTW08wyoKCijOsZhJ5RWe741O
 sudo dpkg -i name_of_the_package.deb
 sudo apt-get install -f
 ```
