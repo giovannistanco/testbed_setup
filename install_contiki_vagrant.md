@@ -62,6 +62,7 @@ end
 ```
 When all the tools are installed, we compile and flash the `examples/hello-world` application. This also allows to verify that the toolchain setup is correct. To compile the example, go to `examples/hello-world` and execute 
 ```
+git submodule update --init
 make TARGET=nrf52dk
 ```
 If the compilation is completed without errors, flash the board:
