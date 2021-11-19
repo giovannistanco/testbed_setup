@@ -22,7 +22,7 @@ We exit the SSH session and then restart the Vagrant image and log in to it agai
 $ vagrant reload
 $ vagrant ssh
 ```
-We can provision the VM with a desktop environment by uncommenting thrre lines on the vagrantfile. 
+We can provision the VM with a desktop environment by uncommenting three lines on the vagrantfile. 
 ```
 config.vm.provider "virtualbox" do |vb|
   vb.gui = true
