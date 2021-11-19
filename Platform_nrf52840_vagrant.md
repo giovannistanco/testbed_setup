@@ -9,6 +9,8 @@ sudo dpkg -i nrf-command-line-tools_10.15.0_amd64.deb
 After installation they are installed in `/opt/`\
 Another needed component is nrfutil for programming the nRF52840 Dongle. It is also needed to upgrade `pip` before install nrfutil.
 ```
+apt install python-pip	
+apt install python3-pip	
 python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
 ```
