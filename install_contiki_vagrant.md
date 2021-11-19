@@ -35,7 +35,7 @@ sudo ./contiki-ng/tools/vagrant/bootstrap-vbox-with-x.sh
 ```
 When we start the image, the VirtualBox GUI is now shown. We login using username 'vagrant' and password 'vagrant' and run `sudo startx` to show the Desktop. \
 The next step is to follow the [Contiki-NG for nRF52 Development Kit guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk).
-In order to compile for the nRF52 DK, we need four components. The nRF5 IOT SDK and the ARM compatible toolchain are installed by the bootstrap.sh script. The other two components are GNU make, that can be installed by running `sudo apt-get install build-essential`, and Segger JLink Software for Linux. The deb file for the JLink software can be downloaded from the [Segger website](https://www.segger.com/downloads/jlink/). From this website we download a 64-bit Deb installer. This Deb package can be downloaded using `wget` or can downloaded on our WIndows host and then moved via a shared folder. This package can be installed using the following two commands.\
+In order to compile for the nRF52 DK, we need four components. The nRF5 IOT SDK and the ARM compatible toolchain are installed by the bootstrap.sh script. The other two components are GNU make, that can be installed by running `sudo apt-get install build-essential`, and Segger JLink Software for Linux. The deb file for the JLink software can be downloaded from the [Segger website](https://www.segger.com/downloads/jlink/). From this website we download a 64-bit Deb installer. This Deb package can be downloaded using `wget` or can downloaded on our Windows host and then moved via a shared folder. This package can be installed using the following two commands.\
 We then downloaded the deb package from Google Drive.
 ```
 sudo pip install gdown
@@ -54,7 +54,7 @@ make TARGET=native
 ./hello-world.native
 ```
 We see the Contiki-NG boot messages and then a periodic 'Hello, world' string. \
-We then run the example on a real device. Since we are on a virtual amchine, we have to make sure that the USB device is visible. In order to do that, we download and install the VirtualBox Extension Pack, we enable USB support for the VM and add the device of our test. We also modify the Vagrantfile, adding the following lines.
+We then run the example on a real device. Since we are on a virtual machine, we have to make sure that the USB device is visible. In order to do that, we download and install the VirtualBox Extension Pack, we enable USB support for the VM and add the device of our test. We also modify the Vagrantfile, adding the following lines.
 ```
 config.vm.provider "virtualbox" do |vb|
   vb.customize ["modifyvm", :id, "--usb", "on"]
