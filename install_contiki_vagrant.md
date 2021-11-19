@@ -40,7 +40,7 @@ We then downloaded the deb package from Google Drive.
 ```
 sudo pip install gdown
 gdown --id 1jpilynTVTW08wyoKCijOsZhJ5RWe741O
-sudo dpkg -i name_of_the_package.deb
+sudo dpkg -i JLink_Linux_V758a_x86_64.deb
 sudo apt-get install -f
 ```
 In order to access the DK as a regular Linux user, we create a `99-jlink.rules` file in our udev rules folder (e.g., `/etc/udev/rules.d/`) and add the following line to it:
