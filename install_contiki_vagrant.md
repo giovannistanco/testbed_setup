@@ -70,6 +70,39 @@ If the compilation is completed without errors, flash the board:
 make TARGET=nrf52dk hello-world.flash
 ```
 The LED1 starts blinking, indicating the device is waiting for a connection from BLE master. 
+However we get the following error. 
+```
+$ make TARGET=nrf52dk hello-world.flash
+SDK: /usr/nrf52-sdk
+SoftDevice: /usr/nrf52-sdk/components/softdevice/s1xx_iot/s1xx-iot-prototype3_nrf52_softdevice.hex
+sed -e 's,#OUTPUT_FILENAME#,build/nrf52dk/hello-world.hex,' ../../arch/cpu/nrf52832/flash.jlink > hello-world.jlink
+Flashing: hello-world.jlink
+/usr/bin/JLinkExe -Device NRF52 -if swd -speed 1000 -CommanderScript hello-world.jlink
+SEGGER J-Link Commander V7.58a (Compiled Nov 11 2021 16:54:46)
+DLL version V7.58a, compiled Nov 11 2021 16:54:28
+
+
+J-Link Command File read successfully.
+Processing script file...
+
+J-Link connection not established yet but required for command.
+Connecting to J-Link via USB...JLinkGUIServerExe: cannot connect to X server
+Updating firmware:  J-Link OB-SAM3U128-V2-NordicSemi compiled Feb  2 2021 16:47:20
+Replacing firmware: J-Link OB-SAM3U128-V2-NordicSemi compiled Mar 17 2020 14:43:00
+FAILED: Communication timeout. Emulator did not re-enumerate.
+Cannot connect to J-Link
+
+J-Link connection not established yet but required for command.
+Connecting to J-Link via USB...FAILED: Failed to open DLL
+
+J-Link connection not established yet but required for command.
+Connecting to J-Link via USB...FAILED: Failed to open DLL
+
+
+Script processing completed.
+
+rm hello-world.jlink
+```
 
 
 
