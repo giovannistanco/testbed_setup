@@ -103,7 +103,3 @@ Script processing completed.
 
 rm hello-world.jlink
 ```
-
-
-
-
