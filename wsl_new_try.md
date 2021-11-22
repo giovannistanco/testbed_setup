@@ -13,11 +13,21 @@ sudo cp -f -r /tmp/msp430/* /usr/local/
 rm -rf /tmp/msp430 mspgcc*.tar.bz2
  
 # https://cache.nxp.com/secured/sdk/JN-SW-4163.zip does not work
-sudo pip install gdown  
-gdown --id 1k5lKsjLBb0Y6jboYE_Yb9Jw8dfQ9ChbO
+# sudo pip install gdown  
+# gdown --id 1k5lKsjLBb0Y6jboYE_Yb9Jw8dfQ9ChbO
 #https://drive.google.com/file/d/1k5lKsjLBb0Y6jboYE_Yb9Jw8dfQ9ChbO/view?usp=sharing
-  
-http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
-  http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part2.tar.bz2
+
+wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
+wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part2.tar.bz2
+wget http://simonduq.github.io/resources/jn516x-sdk-4163-1416.tar.bz2
+mkdir -p /tmp/jn516x-sdk /tmp/ba-elf-gcc
+tar xjf jn516x-sdk-*.tar.bz2 -C /tmp/jn516x-sdk
+tar xjf ba-elf-gcc-*part1.tar.bz2 -C /tmp/ba-elf-gcc
+tar xjf ba-elf-gcc-*part2.tar.bz2 -C /tmp/ba-elf-gcc
+sudo cp -f -r /tmp/jn516x-sdk /usr/
+sudo cp -f -r /tmp/ba-elf-gcc /usr/
+rm -rf jn516x*.bz2 ba-elf-gcc*.bz2 /tmp/ba-elf-gcc* /tmp/jn516x-sdk*
+
+echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
   
   ```
