@@ -1,3 +1,4 @@
+```
 sudo apt update
 sudo apt install build-essential doxygen git curl wireshark python-serial srecord rlwrap
 sudo usermod -a -G wireshark <user>
@@ -18,3 +19,5 @@ gdown --id 1k5lKsjLBb0Y6jboYE_Yb9Jw8dfQ9ChbO
   
 http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
   http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part2.tar.bz2
+  
+  ```
