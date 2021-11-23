@@ -27,7 +27,46 @@ tar xjf ba-elf-gcc-*part2.tar.bz2 -C /tmp/ba-elf-gcc
 sudo cp -f -r /tmp/jn516x-sdk /usr/
 sudo cp -f -r /tmp/ba-elf-gcc /usr/
 rm -rf jn516x*.bz2 ba-elf-gcc*.bz2 /tmp/ba-elf-gcc* /tmp/jn516x-sdk*
-
 echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
+
+
+wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
+unzip nrf5_iot_sdk_3288530.zip -d /home/stanco/nrf5_iot_sdk_unzipped
+export NRF52_SDK_ROOT=/home/stanco/nrf5_iot_sdk_unzipped
+
+sudo apt install build-essential
+
+sudo pip install gdown
+gdown --id 1jpilynTVTW08wyoKCijOsZhJ5RWe741O
+sudo dpkg -i JLink_Linux_V758a_x86_64.deb
+sudo apt-get install -f
+
+sudo apt install default-jdk ant
+update-alternatives --config java
+echo 'export JAVA_HOME="/usr/lib/jvm/default-java"' >> ~/.profile
+
+sudo usermod -a -G plugdev stanco
+sudo usermod -a -G dialout stanco
+cd contiki-ng
+git submodule update --init --recursive
+
+# Environment variables
+echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" >> ${HOME}/.bashrc
+echo "export CONTIKI_NG=${HOME}/contiki-ng" >> ${HOME}/.bashrc
+echo "export COOJA=${CONTIKI_NG}/tools/cooja" >> ${HOME}/.bashrc
+echo "export PATH=${HOME}:${PATH}" >> ${HOME}/.bashrc
+echo "export WORKDIR=${HOME}" >> ${HOME}/.bashrc
+
+
+# These two last commands raise errors
+source ${HOME}/.bashrc
+echo "#!/bin/bash\nant -Dbasedir=${COOJA} -f ${COOJA}/build.xml run" > ${HOME}/cooja && chmod +x ${HOME}/cooja
+
+
+
+
+
+
+
   
   ```
