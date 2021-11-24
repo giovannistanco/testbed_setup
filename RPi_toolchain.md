@@ -139,7 +139,7 @@ yes | sudo apt-get install ant
 yes | sudo apt-get install libncurses5-dev
 yes | sudo apt-get install lib32ncurses5
 ```
-
+When we tried to install `gcc-arm-none-eabi` and `gdb-arm-none-eabi`, we have warnings of 'No space left on device' and `You don't have enough free space in /var/cache/apt/archives/`. So we stopp the installations and try to compile the Hello world example. However we get the following error `Syntax error: word unexpected (expecting ")")`.
 
 
 
@@ -153,7 +153,8 @@ yes | sudo apt-get install lib32ncurses5
 
 
 `###############################################`
-We skip the installation of an ARM compiler by now...
+
+These are other ways to install ARM compiler, we did not follow these.
 ```
 # bootstrap
 wget https://launchpad.net/gcc-arm-embedded/5.0/5-2015-q4-major/+download/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2
