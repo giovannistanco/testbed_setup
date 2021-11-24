@@ -61,19 +61,29 @@ gdown --id 1OVYCL1Oly-NuQTGzSPIZGp57mssj0Id3
 sudo dpkg -i JLink_Linux_V758b_arm.deb
 sudo apt-get install -f
 ```
+We then change one line in the /etc/udev/rules.d/99-jlink.rules file, in order to access the DK as a regular Linux user.
 ```
-
-# In order to access the DK as a regular Linux user create a 99-jlink.rules file in your udev rules folder (e.g., /etc/udev/rules.d/) and add the following line to it:
-
-# ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
-#
-#
-# Install Java for the Cooja network simulator
+ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
+```
+The next step is installing Java for the Cooja network simulator.
+```
 yes | sudo apt install default-jdk ant
 update-alternatives --config java
 echo 'export JAVA_HOME="/usr/lib/jvm/default-java"' >> ~/.profile
-#
-#
+```
+To be able to access the USB without using sudo, the user should be part of the groups plugdev and dialout.
+```
+$ sudo usermod -a -G plugdev pi
+$ sudo usermod -a -G dialout pi
+```
+We clone the Contiki NG library.
+```
+git clone https://github.com/contiki-ng/contiki-ng.git
+cd contiki-ng
+git submodule update --init --recursive
+```
+The `bootstarp.sh` script in the `contiki-ng/tools/vagrant/` folder of the Contiki NG repository also sets the following environment variables. We do not do this for now. 
+```
 # Environment variables, from bootastrap.sh
 echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" >> ${HOME}/.bashrc
 echo "export CONTIKI_NG=${HOME}/contiki-ng" >> ${HOME}/.bashrc
@@ -81,6 +91,8 @@ echo "export COOJA=${CONTIKI_NG}/tools/cooja" >> ${HOME}/.bashrc
 echo "export PATH=${HOME}:${PATH}" >> ${HOME}/.bashrc
 echo "export WORKDIR=${HOME}" >> ${HOME}/.bashrc
 source ${HOME}/.bashrc
+```
+```
 #
 #
 # Install nrfjprog for programmin the nRF52840 DK
