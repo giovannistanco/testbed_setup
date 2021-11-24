@@ -29,7 +29,7 @@ sudo tar xjf mspgcc*.tar.bz2 -C /tmp/
 sudo cp -f -r /tmp/msp430/* /usr/local/ 
 sudo rm -rf /tmp/msp430 mspgcc*.tar.bz2
 ```
-
+We then install the JN compiler. The [guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-jn516x) mentions a compiled version for Linux 64-bit, while our system is 32-bit.
 ```
 # Install NXP toolchain (partial, with binaries excluded. Download from nxp.com)
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
