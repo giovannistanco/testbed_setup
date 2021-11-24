@@ -127,6 +127,24 @@ tar xjf gcc-arm-none-eabi-10.3-2021.10-src.tar.bz2 -C /tmp/
 sudo cp -f -r /tmp/gcc-arm-none-eabi-10.3-2021.10/* /usr/local/
 rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-src.tar.bz2
 ```
-The compilation is not successful, the error we get is `arm-none-eabi-gcc: not found
-`
+The compilation is not successful, the error we get is `arm-none-eabi-gcc: not found`
+The following procedure is taken from the `bootstrap.sh` script for Vagrant, so it is tested on VMs.
+```
+wget https://launchpad.net/gcc-arm-embedded/5.0/5-2015-q4-major/+download/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2
+tar xjf gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C /tmp/
+sudo cp -f -r /tmp/gcc-arm-none-eabi-5_2-2015q4/* /usr/local/
+rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-linux.tar.bz2
+```
+The file is /usr/local/bin/arm-none-eabi-gcc
+
 We try the ARMinARM repository.
+```
+yes | sudo apt-get install minicom 
+yes | sudo apt-get install screen 
+yes | sudo apt-get install autoconf 
+yes | sudo apt-get install libusb-1.0-0-dev 
+yes | sudo apt-get install libtool 
+yes | sudo apt-get install libftdi-dev 
+yes | sudo apt-get install texinfo
+
+```
