@@ -44,20 +44,24 @@ sudo cp -f -r /tmp/ba-elf-gcc /usr/
 rm -rf jn516x*.bz2 ba-elf-gcc*.bz2 /tmp/ba-elf-gcc* /tmp/jn516x-sdk*
 echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
 ```
-To get the NRF52dk platform to work we need to add SDK and programming tools. We follow [this guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk). The nRF52 DK is based on the nRF5 IOT SDK, an ARM compatible toolchain, GNU make, and Segger JLink Software for Linux. We skip the ARM compatible toolchain. 
+To get the NRF52dk platform to work we need to add SDK and programming tools. We follow [this guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk). The nRF52 DK is based on the nRF5 IOT SDK, an ARM compatible toolchain, GNU make, and Segger JLink Software for Linux. We skip the ARM compatible toolchain. GNU make is already installed, since it is included in the package `build-essential`. 
 ```
 wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
 sudo mkdir -p /usr/nrf52-sdk
 sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf52-sdk
 rm nrf5_iot_sdk_3288530.zip
 echo "export NRF52_SDK_ROOT=/usr/nrf52-sdk" >> ${HOME}/.bashrc
-#
-#
-#Install JLink
+```
+We then install JLink. On the Raspberry Pi we can download the 32-bit Linux ARM DEB installer, which is the right one for our RPi, and we install it.\ 
+For the previous VMs, we downloaded the necessary software, uploaded on our personal Google Drive and downloaded it. The following lines are an example on how to make it work using `gdown`, which is a tool for downloading files from Google Drive. 
+```
+##################### Do NOT run this code on the Raspberry Pi!!!
 sudo pip install gdown
 gdown --id 1OVYCL1Oly-NuQTGzSPIZGp57mssj0Id3
 sudo dpkg -i JLink_Linux_V758b_arm.deb
 sudo apt-get install -f
+```
+```
 
 # In order to access the DK as a regular Linux user create a 99-jlink.rules file in your udev rules folder (e.g., /etc/udev/rules.d/) and add the following line to it:
 
