@@ -117,7 +117,13 @@ tar xjf gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C /tmp/
 sudo cp -f -r /tmp/gcc-arm-none-eabi-5_2-2015q4/* /usr/local/
 rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-linux.tar.bz2
 ```
-This time `arm-none-eabi-gcc` is found. A file with this name is in /usr/local/bin/arm-none-eabi-gcc.
+This time `arm-none-eabi-gcc` is found. A file with this name is in /usr/local/bin/arm-none-eabi-gcc. If we run the command `file arm-none-eabi-gcc`, the output is:
+```
+arm-none-eabi-gcc: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.8, stripped
+```
+
+
+
 
 
 
