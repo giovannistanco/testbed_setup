@@ -22,6 +22,12 @@ sudo cp -f -r /tmp/gcc-arm-none-eabi-5_2-2015q4/* /usr/local/
 rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-linux.tar.bz2
 export PATH=/usr/local/arm-none-eabi:$PATH
 ```
+Another procedure for the ARM compiler is the following.
+```
+wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
+tar -xjf gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
+export PATH="/home/pi/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH"
+```
 We install the MSP430 compiler. The guide refers to "binaries for 32-bit Ubuntu", but the recommended link does not provide useful information. 
 ```
 wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2 
@@ -73,8 +79,8 @@ echo 'export JAVA_HOME="/usr/lib/jvm/default-java"' >> ~/.profile
 ```
 To be able to access the USB without using sudo, the user should be part of the groups plugdev and dialout.
 ```
-$ sudo usermod -a -G plugdev pi
-$ sudo usermod -a -G dialout pi
+sudo usermod -a -G plugdev pi
+sudo usermod -a -G dialout pi
 ```
 We clone the Contiki NG library.
 ```
@@ -92,27 +98,20 @@ echo "export PATH=${HOME}:${PATH}" >> ${HOME}/.bashrc
 echo "export WORKDIR=${HOME}" >> ${HOME}/.bashrc
 source ${HOME}/.bashrc
 ```
+This concludes the installation of the toolchain for Linux.\
+The next steps are described by the guide for [Contiki-NG for nRF52840](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52840).\
+In order to compile for the nRF52840 platforms we need an ARM compatible toolchain, that we did not install, and GNU make, that should already be installed.\
+The other two components we need are `nrfjprog` for programming the nRF52840 DK and `nrfutil` for programming the nRF52840 Dongle.\
+nrfjprog is supplied as part of the nRF Command Line Tools and can be downloaded as follows.
 ```
-#
-#
-# Install nrfjprog for programmin the nRF52840 DK
 wget https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-0/nrf-command-line-tools-10.15.0_arm.zip
 unzip nrf-command-line-tools-10.15.0_arm.zip -d nrf_commandlines
 sudo dpkg -i nrf_commandlines/nrf-command-line-tools_10.15.0_armhf.deb
-#
-#
+```
+nrfutil can be installed as follows.
+```
 sudo apt install python-pip	
 sudo apt install python3-pip	
 sudo python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
-```
-We have a problem during compilation of the copde, the error is probably due to the compiler.\
-We try to follow this other procedure
-```
-wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
-tar -xjf gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
-export PATH="/home/pi/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH"
-
-
-
 ```
