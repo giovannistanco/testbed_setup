@@ -1,33 +1,36 @@
+The first thing to do on a brand new Raspberry Pi is to update its software and to install some necessary packages for Contiki-NG.
 ```
 sudo apt update
 yes | sudo apt upgrade --fix-missing
-#
-#
 yes | sudo apt install build-essential 
 yes | sudo apt install doxygen 
 yes | sudo apt install git 
 yes | sudo apt install curl 
 yes | sudo apt install wireshark 
 yes | sudo apt install python-serial 
+yes | sudo apt install python3-serial 
 yes | sudo apt install srecord 
 yes | sudo apt install rlwrap
 sudo usermod -a -G wireshark pi
-#
-#
+```
+We skip the installation of an ARM compiler by now...
+```
 # bootstrap
 wget https://launchpad.net/gcc-arm-embedded/5.0/5-2015-q4-major/+download/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2
 tar xjf gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C /tmp/
 sudo cp -f -r /tmp/gcc-arm-none-eabi-5_2-2015q4/* /usr/local/
 rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-linux.tar.bz2
 export PATH=/usr/local/arm-none-eabi:$PATH
-#
-#
-wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2
+```
+We install the MSP430 compiler. The guide refers to "binaries for 32-bit Ubuntu", but the recommended link does not provide useful information. 
+```
+wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2 
 sudo tar xjf mspgcc*.tar.bz2 -C /tmp/ 
-sudo cp -f -r /tmp/msp430/* /usr/local/
+sudo cp -f -r /tmp/msp430/* /usr/local/ 
 sudo rm -rf /tmp/msp430 mspgcc*.tar.bz2
-#
-#
+```
+
+```
 # Install NXP toolchain (partial, with binaries excluded. Download from nxp.com)
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part2.tar.bz2
