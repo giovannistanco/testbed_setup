@@ -52,7 +52,7 @@ sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf52-sdk
 rm nrf5_iot_sdk_3288530.zip
 echo "export NRF52_SDK_ROOT=/usr/nrf52-sdk" >> ${HOME}/.bashrc
 ```
-We then install JLink. On the Raspberry Pi we can download the 32-bit Linux ARM DEB installer, which is the right one for our RPi, and we install it.\ 
+We then install JLink. On the Raspberry Pi we can download the 32-bit Linux ARM DEB installer, which is the right one for our RPi, from the[ SEGGER website](https://www.segger.com/jlink-software.html) and we install it.\
 For the previous VMs, we downloaded the necessary software, uploaded on our personal Google Drive and downloaded it. The following lines are an example on how to make it work using `gdown`, which is a tool for downloading files from Google Drive. 
 ```
 ##################### Do NOT run this code on the Raspberry Pi!!!
