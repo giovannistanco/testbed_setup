@@ -121,6 +121,24 @@ This time `arm-none-eabi-gcc` is found. A file with this name is in /usr/local/b
 ```
 arm-none-eabi-gcc: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.8, stripped
 ```
+We try to follow this guide for [installing Contiki OS in Raspberry Pi 3](https://techflow360.com/installing-contiki-os-in-raspberry-pi-3/) and we install all the software mentioned.
+```
+sudo apt-get update
+sudo apt-get upgrade
+yes | sudo apt-get install build-essential 
+yes | sudo apt-get install binutils-msp430 
+yes | sudo apt-get install gcc-msp430 
+yes | sudo apt-get install msp430-libc 
+yes | sudo apt-get install msp430mcu 
+yes | sudo apt-get install mspdebug
+yes | sudo apt-get install gcc-arm-none-eabi 
+yes | sudo apt-get install gdb-arm-none-eabi
+yes | sudo apt-get install openjdk-8-jdk 
+yes | sudo apt-get install openjdk-8-jre 
+yes | sudo apt-get install ant 
+yes | sudo apt-get install libncurses5-dev
+yes | sudo apt-get install lib32ncurses5
+```
 
 
 
