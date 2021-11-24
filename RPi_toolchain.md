@@ -28,6 +28,17 @@ wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-20
 tar -xjf gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
 export PATH="/home/pi/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH"
 ```
+#
+#
+Prodedure for installing the ARM compiler. We download the Source Tarball from the [ARM website](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads). The downloaded package includes a readme.txt file for full installation instructions.\
+We run these commands.
+```
+tar xjf gcc-arm-none-eabi-10.3-2021.10-src.tar.bz2 -C /tmp/
+sudo cp -f -r /tmp/gcc-arm-none-eabi-10.3-2021.10/* /usr/local/
+rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-src.tar.bz2
+```
+#
+#
 We install the MSP430 compiler. The guide refers to "binaries for 32-bit Ubuntu", but the recommended link does not provide useful information. 
 ```
 wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2 
