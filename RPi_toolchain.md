@@ -13,32 +13,9 @@ yes | sudo apt install srecord
 yes | sudo apt install rlwrap
 sudo usermod -a -G wireshark pi
 ```
-We skip the installation of an ARM compiler by now...
-```
-# bootstrap
-wget https://launchpad.net/gcc-arm-embedded/5.0/5-2015-q4-major/+download/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2
-tar xjf gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C /tmp/
-sudo cp -f -r /tmp/gcc-arm-none-eabi-5_2-2015q4/* /usr/local/
-rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-linux.tar.bz2
-export PATH=/usr/local/arm-none-eabi:$PATH
-```
-Another procedure for the ARM compiler is the following.
-```
-wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
-tar -xjf gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
-export PATH="/home/pi/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH"
-```
-#
-#
-Prodedure for installing the ARM compiler. We download the Source Tarball from the [ARM website](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads). The downloaded package includes a readme.txt file for full installation instructions.\
-We run these commands.
-```
-tar xjf gcc-arm-none-eabi-10.3-2021.10-src.tar.bz2 -C /tmp/
-sudo cp -f -r /tmp/gcc-arm-none-eabi-10.3-2021.10/* /usr/local/
-rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-src.tar.bz2
-```
-#
-#
+
+`##################### ARM installation`
+
 We install the MSP430 compiler. The guide refers to "binaries for 32-bit Ubuntu", but the recommended link does not provide useful information. 
 ```
 wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2 
@@ -126,3 +103,30 @@ sudo apt install python3-pip
 sudo python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
 ```
+We skip the installation of an ARM compiler by now...
+```
+# bootstrap
+wget https://launchpad.net/gcc-arm-embedded/5.0/5-2015-q4-major/+download/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2
+tar xjf gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C /tmp/
+sudo cp -f -r /tmp/gcc-arm-none-eabi-5_2-2015q4/* /usr/local/
+rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-linux.tar.bz2
+export PATH=/usr/local/arm-none-eabi:$PATH
+```
+Another procedure for the ARM compiler is the following.
+```
+wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
+tar -xjf gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
+export PATH="/home/pi/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH"
+```
+#
+#
+Prodedure for installing the ARM compiler. We download the Source Tarball from the [ARM website](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads). The downloaded package includes a readme.txt file for full installation instructions.\
+We run these commands.
+```
+tar xjf gcc-arm-none-eabi-10.3-2021.10-src.tar.bz2 -C /tmp/
+sudo cp -f -r /tmp/gcc-arm-none-eabi-10.3-2021.10/* /usr/local/
+rm -rf /tmp/gcc-arm-none-eabi-* gcc-arm-none-eabi-*-src.tar.bz2
+```
+The compilation is not successful, the error we get is `arm-none-eabi-gcc: not found
+`
+We try the ARMinARM repository.
