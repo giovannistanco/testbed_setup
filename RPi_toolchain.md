@@ -42,12 +42,10 @@ tar xjf ba-elf-gcc-*part2.tar.bz2 -C /tmp/ba-elf-gcc
 sudo cp -f -r /tmp/jn516x-sdk /usr/
 sudo cp -f -r /tmp/ba-elf-gcc /usr/
 rm -rf jn516x*.bz2 ba-elf-gcc*.bz2 /tmp/ba-elf-gcc* /tmp/jn516x-sdk*
-
 echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
-# sudo nano ~/.bashrc
-#
-#
-## Install nRF52 SDK
+```
+To get the NRF52dk platform to work we need to add SDK and programming tools. We follow [this guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk).
+```
 wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
 sudo mkdir -p /usr/nrf52-sdk
 sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf52-sdk
