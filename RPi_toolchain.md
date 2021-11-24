@@ -88,13 +88,14 @@ sudo apt install python-pip
 sudo apt install python3-pip	
 sudo python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
-
-
-
-
-
+```
+We have a problem during compilation of the copde, the error is probably due to the compiler.\
+We try to follow this other procedure
+```
+wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
+tar -xjf gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2
+export PATH="/home/pi/gcc-arm-none-eabi-9-2020-q2-update/bin:$PATH"
 
 
 
 ```
-
