@@ -2,7 +2,8 @@ Our reference guide is the guide for [Toolchain installation on Linux](https://g
 The first thing to do on a brand new Raspberry Pi is to update its software and to install some necessary packages for Contiki-NG.
 ```
 sudo apt update
-yes | sudo apt upgrade --fix-missing
+sudo apt-get update
+# yes | sudo apt upgrade --fix-missing
 yes | sudo apt install build-essential 
 yes | sudo apt install doxygen 
 yes | sudo apt install git 
