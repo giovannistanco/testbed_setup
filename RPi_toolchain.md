@@ -113,8 +113,9 @@ We then run an instruction that we skipped before. The commands are the followin
 cd contiki-ng 
 git submodule update --init –recursive 
 ``` 
-It compiled!\
-We then run the command for flasking the code on the board. It worked! The output is in the following.
+We run the command `make TARGET=nrf52840`: it compiles!\
+
+We then run the command for flashing the code on the board. It works! The output is in the following.
 ``` 
 
 $ make TARGET=nrf52840 hello-world.upload 
