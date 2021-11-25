@@ -123,6 +123,7 @@ This time `arm-none-eabi-gcc` is found. A file with this name is in /usr/local/b
 ```
 arm-none-eabi-gcc: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.8, stripped
 ```
+The error we get is `exec format error`.\
 We try to follow this guide for [installing Contiki OS in Raspberry Pi 3](https://techflow360.com/installing-contiki-os-in-raspberry-pi-3/) and we install all the software mentioned.
 ```
 sudo apt-get update
@@ -141,7 +142,7 @@ yes | sudo apt-get install ant
 yes | sudo apt-get install libncurses5-dev
 yes | sudo apt-get install lib32ncurses5
 ```
-When we tried to install `gcc-arm-none-eabi` and `gdb-arm-none-eabi`, we have warnings of 'No space left on device' and `You don't have enough free space in /var/cache/apt/archives/`. So we stopp the installations and try to compile the Hello world example. However we get the following error `Syntax error: word unexpected (expecting ")")`.
+When we tried to install `gcc-arm-none-eabi` and `gdb-arm-none-eabi`, we have warnings of 'No space left on device' and `You don't have enough free space in /var/cache/apt/archives/`. So we stop the installations and try to compile the Hello world example. However we get the following error `Syntax error: word unexpected (expecting ")")`.
 
 
 
