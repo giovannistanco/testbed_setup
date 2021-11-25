@@ -1,3 +1,5 @@
+Our reference guide is the guide for [Toolchain installation on Linux](https://github.com/contiki-ng/contiki-ng/wiki/Toolchain-installation-on-Linux).\
+
 The first thing to do on a brand new Raspberry Pi is to update its software and to install some necessary packages for Contiki-NG.
 ```
 sudo apt update
@@ -14,7 +16,7 @@ yes | sudo apt install rlwrap
 sudo usermod -a -G wireshark pi
 ```
 We skip the ARM toolchain installation for now since it is the one that gives much trouble.\
-We install the MSP430 compiler. The guide refers to "binaries for 32-bit Ubuntu", but the recommended link does not provide useful information. 
+We install the MSP430 compiler. The guide refers to "binaries for 32-bit Ubuntu", but the recommended link does not provide useful information, so we follow the standard procedure.
 ```
 wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2 
 sudo tar xjf mspgcc*.tar.bz2 -C /tmp/ 
@@ -36,7 +38,7 @@ sudo cp -f -r /tmp/ba-elf-gcc /usr/
 rm -rf jn516x*.bz2 ba-elf-gcc*.bz2 /tmp/ba-elf-gcc* /tmp/jn516x-sdk*
 echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
 ```
-To get the NRF52dk platform to work we need to add SDK and programming tools. We follow [this guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk). The nRF52 DK is based on the nRF5 IOT SDK, an ARM compatible toolchain, GNU make, and Segger JLink Software for Linux. We skip the ARM compatible toolchain. GNU make is already installed, since it is included in the package `build-essential`. 
+To get the NRF52dk platform to work we need to add SDK and programming tools. We follow [this guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk). The nRF52 DK is based on the nRF5 IOT SDK, an ARM compatible toolchain, GNU make, and Segger JLink Software for Linux. We skip the ARM compatible toolchain. GNU make is already installed, since it is included in the package `build-essential`. We install the nRF5 IOT SDK.
 ```
 wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
 sudo mkdir -p /usr/nrf52-sdk
