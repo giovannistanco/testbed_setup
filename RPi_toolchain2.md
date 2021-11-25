@@ -1,5 +1,4 @@
 Our reference guide is the guide for [Toolchain installation on Linux](https://github.com/contiki-ng/contiki-ng/wiki/Toolchain-installation-on-Linux).\
-
 The first thing to do on a brand new Raspberry Pi is to update its software and to install some necessary packages for Contiki-NG.
 ```
 sudo apt update
@@ -78,8 +77,6 @@ sudo usermod -a -G dialout pi
 We clone the Contiki NG library.
 ```
 git clone https://github.com/contiki-ng/contiki-ng.git
-cd contiki-ng
-git submodule update --init --recursive
 ```
 The `bootstarp.sh` script in the `contiki-ng/tools/vagrant/` folder of the Contiki NG repository also sets the following environment variables. We do not do this for now. 
 ```
