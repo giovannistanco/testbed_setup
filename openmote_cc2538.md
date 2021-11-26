@@ -1,1 +1,2 @@
-The OpenMote platform is based on TI's CC2538 SoC 
+The OpenMote platform is based on Texas Instruments CC2538 SoC, featuring an ARM Cortex-M3, 32 kbytes of RAM ans 256/512 kbytes of FLASH. The OpenMote platforms supports two boards: the original openmote-cc2538 and the new openmote-b.  
+For using Contiki-NG with the OpenMote-CC2538, we need an OpenMote-CC2538 board, a toolchain to compile for the CC2538, drivers for our OS, software to upload images to the CC2538.
