@@ -29,6 +29,7 @@ yes | sudo apt-get install msp430-libc
 yes | sudo apt-get install msp430mcu 
 yes | sudo apt-get install mspdebug
 
+cd ~
 # Installing the JN compiler
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part2.tar.bz2
