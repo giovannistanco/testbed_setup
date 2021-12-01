@@ -22,7 +22,7 @@ allow-hotplug wlan0
 
 iface wlan0 inet dhcp
         wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-        ```
+```
 Edit the `/etc/wpa_supplicant/wpa_supplicant.conf`, adding this configuration.
 ```
 network={
