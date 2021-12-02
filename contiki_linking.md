@@ -1,8 +1,4 @@
-We try to setup a virtual environment on the Raspberry Pi for linking the Task Offloading software.
-```
-sudo apt-get install git build-essential gcc-arm-none-eabi python3 texlive-extra-utils cm-super texlive-latex-extra dvipng poppler-utils srecord rsync
-python3 -m pip install pexpect
-```
+We try to setup a virtual environment on the Raspberry Pi for linking the Task Offloading software.\
 We download Contiki NG.
 ```
 mkdir ~/wsn
@@ -11,3 +7,25 @@ git clone -b petras https://github.com/MBradbury/contiki-ng.git
 cd contiki-ng
 git submodule update --init
 ```
+Edit `~/.bashrc` to add the path to Contiki-NG.
+```
+export CONTIKING_OSCORE_DIR="~/wsn/contiki-ng"
+export COOJA_DIR="$CONTIKING_OSCORE_DIR/tools/cooja"
+```
+Clone the `iot-trust-task-alloc` public repository.
+```
+cd ~/wsn
+git clone https://github.com/MBradbury/iot-trust-task-alloc.git
+cd iot-trust-task-alloc && git submodule update --init
+```
+Procedure for Resource Constrained Nodes (Monitors)
+```
+yes | sudo apt-get install git python3-pip python3-dev pipenv python3-serial
+python3 -m pip install pyserial
+cd  ~
+git clone https://gitlab.com/cs407-idiots/pi-client.git
+cd pi-client
+pipenv install
+```
+We get the error `Python 3.7 not found`. So we run `pipenv install --python /usr/bin`. The warning we have is `Your Pipfile requires python_version 3.7, but you are using 3.9.2.` It creates a virtualenv for this project using `/usr/bin/python3 (3.9.2)`.\
+To activate this project's virtualenv, we run `pipenv shell`. The virtual environment is created. 
