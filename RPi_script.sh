@@ -53,10 +53,12 @@ echo "export NRF52_SDK_ROOT=/usr/nrf52-sdk" >> ${HOME}/.bashrc
 
 # Installing the SEGGER JLink software
 cd ~
-sudo pip install gdown
-gdown --id 1S8DPG0Zq4KqDtYbIxyY51I3-JAbYvZ40
-sudo dpkg -i JLink_Linux_V758c_arm.deb
+yes | sudo pip install gdown
+gdown --id 1OVYCL1Oly-NuQTGzSPIZGp57mssj0Id3
+sudo dpkg -i JLink_Linux_V758b_arm.deb
 sudo apt-get install -f
+
+# Remember to change the line in the /etc/udev/rules.d/99-jlink.rules file.
 
 # Installing Java for the Cooja network simulator
 yes | sudo apt install default-jdk ant
