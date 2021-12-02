@@ -44,6 +44,7 @@ rm -rf jn516x*.bz2 ba-elf-gcc*.bz2 /tmp/ba-elf-gcc* /tmp/jn516x-sdk*
 echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
 
 # Installing the nRF5 IOT SDK
+cd ~
 wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
 sudo mkdir -p /usr/nrf52-sdk
 sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf52-sdk
@@ -51,8 +52,11 @@ rm nrf5_iot_sdk_3288530.zip
 echo "export NRF52_SDK_ROOT=/usr/nrf52-sdk" >> ${HOME}/.bashrc
 
 # Installing the SEGGER JLink software
-https://www.segger.com/downloads/jlink/JLink_Linux_arm.deb
-sudo dpkg -i JLink_Linux_arm.deb
+cd ~
+sudo pip install gdown
+gdown --id 1S8DPG0Zq4KqDtYbIxyY51I3-JAbYvZ40
+sudo dpkg -i JLink_Linux_V758c_arm.deb
+sudo apt-get install -f
 
 # Installing Java for the Cooja network simulator
 yes | sudo apt install default-jdk ant
@@ -64,6 +68,7 @@ sudo usermod -a -G plugdev pi
 sudo usermod -a -G dialout pi
 
 # Installing nrfjprog
+cd ~
 wget https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-0/nrf-command-line-tools-10.15.0_arm.zip
 unzip nrf-command-line-tools-10.15.0_arm.zip -d nrf_commandlines
 sudo dpkg -i nrf_commandlines/nrf-command-line-tools_10.15.0_armhf.deb
@@ -75,6 +80,7 @@ sudo python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
 
 # Cloning the Contiki NG library
+cd ~
 git clone https://github.com/contiki-ng/contiki-ng.git
 cd contiki-ng 
 git submodule update --init –recursive 
