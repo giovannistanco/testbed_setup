@@ -74,10 +74,10 @@ unzip nrf-command-line-tools-10.15.0_arm.zip -d nrf_commandlines
 sudo dpkg -i nrf_commandlines/nrf-command-line-tools_10.15.0_armhf.deb
 
 # Installing nrfutil
-sudo apt install python-pip	
-sudo apt install python3-pip	
-sudo python3 -m pip install -U pip
-sudo python3 -m pip install nrfutil
+yes | sudo apt install python-pip	
+yes | sudo apt install python3-pip	
+yes | sudo python3 -m pip install -U pip
+yes | sudo python3 -m pip install nrfutil
 
 # Cloning the Contiki NG library
 cd ~
