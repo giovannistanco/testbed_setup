@@ -28,4 +28,23 @@ cd pi-client
 pipenv install
 ```
 We get the error `Python 3.7 not found`. So we run `pipenv install --python /usr/bin`. The warning we have is `Your Pipfile requires python_version 3.7, but you are using 3.9.2.` It creates a virtualenv for this project using `/usr/bin/python3 (3.9.2)`.\
-To activate this project's virtualenv, we run `pipenv shell`. The virtual environment is created. 
+To activate this project's virtualenv, we run `pipenv shell`. The virtual environment is created. \
+\
+The command to run is the following.
+```
+./tools/setup.py -h
+python - m tools.setup 
+```
+We need to install the needed packages.
+```
+python3 -m pip install fabric
+python3 -m pip install patchwork
+python3 -m pip install cbor2
+python3 -m pip install numpy
+```
+
+
+
+
+
+
