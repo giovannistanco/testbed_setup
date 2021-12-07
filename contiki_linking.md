@@ -32,9 +32,10 @@ To activate this project's virtualenv, we run `pipenv shell`. The virtual enviro
 \
 The command to run is the following. Setup does the compiling. 
 ```
-./tools/setup.py -h
+# ./tools/setup.py -h
 python - m tools.setup 
 ```
+These commands give different errors when trying to compile. We run the second. 
 We need to install the needed packages.
 ```
 python3 -m pip install fabric
@@ -42,8 +43,10 @@ python3 -m pip install patchwork
 python3 -m pip install cbor2
 python3 -m pip install numpy
 yes | sudo apt-get install libatlas-base-dev
-
+# python3 -m pip install common
 ```
+We need to create a `common/configuration.py` file to make it work. We copy the `/common/configuration.py.example` file, without changing anything.\
+Setup need two arguments: trust_model and trust_choose. We choose one of the posible trust_model and trust_choose present in `wsn/common/trust`. 
 
 
 
