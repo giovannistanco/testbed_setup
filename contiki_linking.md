@@ -55,7 +55,8 @@ The error is now in the `_generate_static_keys_and_build` method, in the `tools/
 ```
 python -m tools.setup basic banded --verbose-make --applications monitoring
 ```
-
+We need to fix other problems.
+We download the nRF5 SDK version 16 from the [Nordic website](https://www.nordicsemi.com/Products/Development-software/nRF5-SDK/Download). We download it on our PC and paste on  a USB stick. We copy the files to the `/home/pi/wsn/contiki-ng/arch/cpu/nrf52840/lib/nrf52-sdk` folder. The command we have to run is `python -m tools.setup basic banded --applications monitoring --target nRF52840DK`.
 
 
 
