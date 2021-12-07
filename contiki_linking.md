@@ -9,10 +9,11 @@ git submodule update --init
 ```
 Edit `~/.bashrc` to add the path to Contiki-NG. 
 ```
-export CONTIKING_OSCORE_DIR="~/wsn/contiki-ng"
+export CONTIKING_OSCORE_DIR="/home/pi/wsn/contiki-ng"
 export COOJA_DIR="$CONTIKING_OSCORE_DIR/tools/cooja"
 ```
 Add these line at the end of the .bashrc file and reboot the device.\
+In order for builds to succeed you will need to modify `os/net/security/tinydtls/sha2/sha2.c` by commenting out line 35 `(#include "tinydtls.h")`.
 Clone the `iot-trust-task-alloc` public repository.
 ```
 cd ~/wsn
