@@ -7,11 +7,12 @@ git clone -b petras https://github.com/MBradbury/contiki-ng.git
 cd contiki-ng
 git submodule update --init
 ```
-Edit `~/.bashrc` to add the path to Contiki-NG.
+Edit `~/.bashrc` to add the path to Contiki-NG. 
 ```
 export CONTIKING_OSCORE_DIR="~/wsn/contiki-ng"
 export COOJA_DIR="$CONTIKING_OSCORE_DIR/tools/cooja"
 ```
+Add these line at the end of the .bashrc file and reboot the device.\
 Clone the `iot-trust-task-alloc` public repository.
 ```
 cd ~/wsn
@@ -46,7 +47,16 @@ yes | sudo apt-get install libatlas-base-dev
 # python3 -m pip install common
 ```
 We need to create a `common/configuration.py` file to make it work. We copy the `/common/configuration.py.example` file, without changing anything.\
-Setup need two arguments: trust_model and trust_choose. We choose one of the posible trust_model and trust_choose present in `wsn/common/trust`. 
+Setup need two arguments: trust_model and trust_choose. We choose one of the posible trust_model and trust_choose present in `wsn/common/trust`. \
+We run `python -m tools.setup basic banded`.\
+If you need a more verbose output, delete the line `capture_output=True` in the `_clean_build_dirs` method of the `tools/setup.py` file, and run `python -m tools.setup basic banded --verbose-make`.\
+The error is now in the `_generate_static_keys_and_build` method, in the `tools/setup.py` script. The error is that `join(self.applications)` can only join an iterable. So we use one of the possible applications present in `wsn/applications` as input argument. The command we run is
+```
+python -m tools.setup basic banded --verbose-make --applications monitoring
+```
+
+
+
 
 
 
