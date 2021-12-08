@@ -3,29 +3,29 @@ The first thing to do is to install some necessary packages for Contiki-NG. We d
 ```
 sudo apt update
 sudo apt-get update
-yes | sudo apt install build-essential 
-yes | sudo apt install doxygen 
-yes | sudo apt install git 
-yes | sudo apt install curl 
-yes | sudo apt install wireshark 
-yes | sudo apt install python-serial 
-yes | sudo apt install python3-serial 
-yes | sudo apt install srecord 
-yes | sudo apt install rlwrap
+sudo apt install -y build-essential 
+sudo apt install -y doxygen 
+sudo apt install -y git 
+sudo apt install -y curl 
+sudo apt install -y wireshark 
+sudo apt install -y python-serial 
+sudo apt install -y python3-serial 
+sudo apt install -y srecord 
+sudo apt install -y rlwrap
 sudo usermod -a -G wireshark pi
 ```
 We install the ARM toolchain, installing the packages suggested by the RPi guide, and not using the procedure of the Contiki NG Wiki. 
 ```
-yes | sudo apt-get install gcc-arm-none-eabi 
-yes | sudo apt-get install gdb-arm-none-eabi
+sudo apt-get install -y gcc-arm-none-eabi 
+sudo apt-get install -y gdb-arm-none-eabi
 ```
 We install the MSP430 compiler.
 ```
-yes | sudo apt-get install binutils-msp430 
-yes | sudo apt-get install gcc-msp430 
-yes | sudo apt-get install msp430-libc 
-yes | sudo apt-get install msp430mcu 
-yes | sudo apt-get install mspdebug
+sudo apt-get install -y binutils-msp430 
+sudo apt-get install -y gcc-msp430 
+sudo apt-get install -y msp430-libc 
+sudo apt-get install -y msp430mcu 
+sudo apt-get install -y mspdebug
 ```
 We then install the JN compiler. The [guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-jn516x) refers to a compiled version for Linux 64-bit, while our system is 32-bit. We do not have other alternatives, so we follow the 64-bit procedure. 
 ```
@@ -65,7 +65,7 @@ ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
 ```
 The next step is installing Java for the Cooja network simulator.
 ```
-yes | sudo apt install default-jdk ant
+sudo apt install -y default-jdk ant
 update-alternatives --config java
 echo 'export JAVA_HOME="/usr/lib/jvm/default-java"' >> ~/.profile
 ```
