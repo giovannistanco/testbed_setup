@@ -7,3 +7,10 @@ sudo usermod -a -G wireshark giovanni
 
 ```
 While installing Wireshark, select enable the feature that lets non-superuser capture packets (select "yes").\
+Install an ARM compiler
+
+```
+wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+tar -xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 
+export PATH="$/home/giovanni/gcc-arm-none-eabi-10.3-2021.10/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+```
