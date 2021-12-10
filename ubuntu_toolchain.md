@@ -50,3 +50,40 @@ cd ~
 wget https://www.segger.com/downloads/jlink/JLink_Linux_x86_64.deb
 sudo dpkg -i JLink_Linux_x86_64.deb
 ```
+In order to access the DK as a regular Linux user, edit the `/etc/udev/rules.d/99-jlink.rules` file and change the following line.
+```
+ATTRS{idProduct}=="1015", ATTRS{idVendor}=="1366", MODE="0666"
+```
+We install Java for the Cooja network simulator.
+```
+sudo apt install -y default-jdk ant
+update-alternatives --config java
+echo 'export JAVA_HOME="/usr/lib/jvm/default-java"' >> ~/.profile
+```
+We grant user access to USB, improve stability for CC2538, and reboot the system.
+```
+sudo usermod -a -G plugdev <user>
+sudo usermod -a -G dialout <user>
+```
+Add the line `ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16c8", ENV{ID_MM_DEVICE_IGNORE}="1"` to the `/lib/udev/rules.d/77-mm-usb-device-blacklist.rules` file.\
+Then reboot the system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We clone the repository and initialize the submodules.
+```
+git clone git@github.com:contiki-ng/contiki-ng.git
+cd contiki-ng
+git submodule update --init --recursive
+```
