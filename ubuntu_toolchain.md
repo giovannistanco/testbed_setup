@@ -15,7 +15,7 @@ tar -xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
 echo 'export PATH="$/home/giovanni/gcc-arm-none-eabi-10.3-2021.10/bin:${PATH}"' >> ${HOME}/.bashrc
 
 ```
-
+Another option is to install it using the command `sudo apt-get install gcc-arm-none-eabi`.\
 Install MSP430 compiler.
 ```
 wget -nv http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2
@@ -23,7 +23,7 @@ tar xjf mspgcc*.tar.bz2 -C /tmp/
 sudo cp -f -r /tmp/msp430/* /usr/local/
 rm -rf /tmp/msp430 mspgcc*.tar.bz2
 ```
-Install Jn compiler.
+We install the JN compiler.
 ```
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part1.tar.bz2
 wget http://simonduq.github.io/resources/ba-elf-gcc-4.7.4-part2.tar.bz2
@@ -73,5 +73,17 @@ git clone git@github.com:contiki-ng/contiki-ng.git
 cd contiki-ng
 git submodule update --init --recursive
 ```
-We test if the toolchain is correctly installed. 
+We test if the toolchain is correctly installed. we move into the `contiki-ng/examples/hello-world` folder and run `make TARGET=nrf52dk`.\
+We also run the following commands.
+```
+make TARGET=nrf52dk erase
+make TARGET=nrf52dk softdevice.flash
+```
+If the compilation is completed without errors flash the board using `make TARGET=nrf52dk hello-world.flash`.\
+\
+We now folow the guide for [Contiki-NG for nRF52840](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52840).
+
+
+
+
 
