@@ -66,24 +66,12 @@ sudo usermod -a -G plugdev <user>
 sudo usermod -a -G dialout <user>
 ```
 Add the line `ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16c8", ENV{ID_MM_DEVICE_IGNORE}="1"` to the `/lib/udev/rules.d/77-mm-usb-device-blacklist.rules` file.\
-Then reboot the system.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Then reboot the system.\
 We clone the repository and initialize the submodules.
 ```
 git clone git@github.com:contiki-ng/contiki-ng.git
 cd contiki-ng
 git submodule update --init --recursive
 ```
+We test if the toolchain is correctly installed. 
+
