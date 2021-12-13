@@ -3,7 +3,7 @@ We follow the guide for the [toolchain installation on Linux](https://github.com
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt install -y build-essential doxygen git curl wireshark python-serial srecord rlwrap
-sudo usermod -a -G wireshark giovanni
+sudo usermod -a -G wireshark <user>
 
 ```
 While installing Wireshark, select enable the feature that lets non-superuser capture packets (select "yes").\
@@ -36,14 +36,14 @@ rm ba-elf-gcc-4.7.4-part*
 rm jn516x*
 echo 'export PATH="/usr/ba-elf-gcc/bin:${PATH}"' >> ${HOME}/.bashrc
 ```
-Install the [nRF SDK](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk). 
+We install the nRF SDK using [another guide](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52dk).
 ```
 wget https://developer.nordicsemi.com/nRF5_IoT_SDK/nRF5_IoT_SDK_v0.9.x/nrf5_iot_sdk_3288530.zip
 sudo mkdir -p /usr/nrf5_iot_sdk
 sudo unzip nrf5_iot_sdk_3288530.zip -d /usr/nrf5_iot_sdk
 echo 'export NRF52_SDK_ROOT=/usr/nrf5_iot_sdk' >> ${HOME}/.bashrc
 ```
-The ARM toolchain should already be installed. GNU make should be included in the `build-essential` package. We then install the [Segger JLink Software for Linux] (https://www.segger.com/jlink-software.html). We can also directly download from the website, without using terminal commands. 
+The ARM toolchain should already be installed. GNU make should be included in the `build-essential` package. We then install the [Segger JLink Software for Linux](https://www.segger.com/jlink-software.html). We can also directly download from the website, without using terminal commands. 
 
 ```
 cd ~
