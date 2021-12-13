@@ -98,4 +98,21 @@ sudo apt install -y python3-pip
 sudo python3 -m pip install -U pip
 sudo python3 -m pip install nrfutil
 ```
+We now compile the Hello World example of the Contiki-NG repository. We move into `contiki-ng/examples/hello-world/`
+```
+make TARGET=nrf52840
+make TARGET=nrf52840 hello-world.upload
+```
+These two operations do not raise errors, the output of the flashing is the following.
+```
+../../Makefile.gcc:13: Warning: you're using a version of arm-none-eabi-gcc that may create broken Contiki-NG executables.
+../../Makefile.gcc:14: We recommend to upgrade or downgrade your toolchain.
+nrfjprog -f nrf52  --sectorerase --program build/nrf52840/dk/hello-world.hex
+Parsing image file.
+Verified OK.
+nrfjprog -f nrf52  --reset
+Applying system reset.
+Run.
+```
+
 
