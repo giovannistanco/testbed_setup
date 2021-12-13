@@ -30,7 +30,7 @@ cd ~
 mkdir wireshark
 git clone https://gitlab.com/wireshark/wireshark.git -b release-3.4
 cd wireshark
-sudo tools/debian-setup.sh --install-optional --install-deb-deps --install-test-deps
+yes | sudo tools/debian-setup.sh --install-optional --install-deb-deps --install-test-deps
 dpkg-buildpackage -b -uc -us -jauto
 cd ..
 rm wireshark-{doc,dev,dbg}_*.deb
