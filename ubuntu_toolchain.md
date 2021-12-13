@@ -81,9 +81,20 @@ make TARGET=nrf52dk softdevice.flash
 ```
 If the compilation is completed without errors flash the board using `make TARGET=nrf52dk hello-world.flash`.\
 \
-We now folow the guide for [Contiki-NG for nRF52840](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52840).
-
-
-
-
-
+We now follow the guide for [Contiki-NG for nRF52840](https://github.com/contiki-ng/contiki-ng/wiki/Platform-nrf52840).\
+Two prerequisites of this guide are an ARM compatible toolchain and GNU Make: these two componenets should already be installed.\
+The other two components we need are nrfjprog for programming the nRF52840 DK and nrfutil for programming the nRF52840 Dongle.\
+nrfjprog is supplied as part of the nRF Command Line Tools and can be downloaded as follows.
+```
+wget https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-1/nrf-command-line-tools-10.15.1_Linux-amd64.zip
+unzip nrf-command-line-tools-10.15.1_Linux-amd64.zip -d nrf_commandlines
+sudo dpkg -i nrf_commandlines/nrf-command-line-tools_10.15.1_amd64.deb  
+# sudo dpkg -i nrf_commandlines/JLink_Linux_V758b_x86_64.deb  # This is optional, it raises a downgrading warning.
+```
+nrfutil can be installed as follows.
+```
+sudo apt install -y python-pip	
+sudo apt install -y python3-pip	
+sudo python3 -m pip install -U pip
+sudo python3 -m pip install nrfutil
+```
