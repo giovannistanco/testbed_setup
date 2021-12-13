@@ -60,7 +60,8 @@ Run `sudo update-alternatives --config python3` and type the number of the Pytho
 sudo rm /usr/bin/python3
 sudo ln -s python3.7 /usr/bin/python3
 ```
-
+Python version should be 3.7, so if needed run this command `sudo update-alternatives  --set python3  /usr/bin/python3.6`.\
+We try to install pipenv.
 ```
 cd  ~
 git clone https://gitlab.com/cs407-idiots/pi-client.git
@@ -79,10 +80,10 @@ sudo apt-get install -y libatlas-base-dev
 The first step is to configure and build. 
 ```
 cd ~/wsn/iot-trust-task-alloc
-python -m tools.setup basic banded --applications monitoring
+python3 -m tools.setup basic banded --applications monitoring
 ```
-
-
-
-
-
+We have problems with Nacl, so we uninstall it and reinstall it.
+```
+sudo python3 -m pip uninstall PyNaCl
+sudo python3 -m pip install PyNaCl
+```
