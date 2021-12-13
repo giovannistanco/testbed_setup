@@ -60,7 +60,7 @@ Run `sudo update-alternatives --config python3` and type the number of the Pytho
 sudo rm /usr/bin/python3
 sudo ln -s python3.7 /usr/bin/python3
 ```
-Python version should be 3.7, so if needed run this command `sudo update-alternatives  --set python3  /usr/bin/python3.6`.\
+Python version should be 3.7, so if needed run this command `sudo update-alternatives  --set python3  /usr/bin/python3.7`.\
 We try to install pipenv.
 ```
 cd  ~
