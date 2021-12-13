@@ -41,4 +41,48 @@ We install Pyshark, using one of these two commands.
 python3 -m pip install --upgrade pyshark
 python3 -m pip install --upgrade git+https://github.com/KimiNewt/pyshark.git#subdirectory=src
 ```
+We follow the procedure for [Resource Rich Nodes (Edges) and Resource Constrained Nodes (Monitors)](https://github.com/MBradbury/iot-trust-task-alloc#resource-rich-nodes-edges-and-resource-constrained-nodes-monitors).
+```
+sudo apt-get install git python3-pip python3-dev python3-serial
+sudo pip install pipenv
+sudo -H pip install -U pipenv
+python3 -m pip install pyserial
+```
+We also need to [update Python](https://dev.to/serhatteker/how-to-upgrade-to-python-3-7-on-ubuntu-18-04-18-10-5hab) for the correct use of Pipenv in the following instructions. 
+```
+sudo apt update -y
+sudo apt install python3.7
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+```
+Run `sudo update-alternatives --config python3` and type the number of the Python 3.7 version. We then run the following.
+```
+sudo rm /usr/bin/python3
+sudo ln -s python3.7 /usr/bin/python3
+```
+
+```
+cd  ~
+git clone https://gitlab.com/cs407-idiots/pi-client.git
+cd pi-client
+pipenv install
+```
+We are having trouble using pipenv, we skip it altogether.\
+We follow the [Instructions to Deploy (Manual)](https://github.com/MBradbury/iot-trust-task-alloc#instructions-to-deploy-manual).\
+We install the following packages.
+```
+python3 -m pip install cbor2
+python3 -m pip install fabric patchwork numpy
+python3 -m pip install cryptography more_itertools
+sudo apt-get install -y libatlas-base-dev
+```
+The first step is to configure and build. 
+```
+cd ~/wsn/iot-trust-task-alloc
+python -m tools.setup basic banded --applications monitoring
+```
+
+
+
+
 
