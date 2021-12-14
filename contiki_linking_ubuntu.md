@@ -100,7 +100,15 @@ sudo apt install libncurses-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
 sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
 ```
-It seems that now a newer version is installed. 
+It seems that now a newer version is installed.\
+We delete the line `capture_output=True` in the `_clean_build_dirs` method of the `tools/setup.py` file, and run the following.
+```
+python3 -m tools.setup basic banded --verbose-make --applications monitoring 2>out.2 1>out.1
+```
+The error nwe get is `PermissionError: [Errno 13] Permission denied: 'build_number'`. We add `sudo` to the command.
+```
+sudo python3 -m tools.setup basic banded --verbose-make --applications monitoring 2>out.2 1>out.1
+```
 
 
 
