@@ -17,7 +17,10 @@ We edit `~/.bashrc` to add the path to Contiki-NG before the interactivity check
 export CONTIKING_OSCORE_DIR="~/wsn/contiki-ng"
 export COOJA_DIR="$CONTIKING_OSCORE_DIR/tools/cooja"
 ```
-In order for builds to succeed we need to modify `os/net/security/tinydtls/sha2/sha2.c` by commenting out line 35 (`#include "tinydtls.h"`). #Put \\ ahead of the line.\
+In order for builds to succeed we need to modify `os/net/security/tinydtls/sha2/sha2.c` by commenting out line 35.
+```
+//#include "tinydtls.h"`
+```
 We clone the `iot-trust-task-alloc` repository.
 ```
 cd ~/wsn
